@@ -12,7 +12,7 @@ setup(
         'pandas',
         'numpy',
         'scikit-learn',
-        # Add other dependencies
+        'nltk'
     ],
     classifiers=[
         'Programming Language :: Python :: 3',
