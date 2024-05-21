@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 from datetime import datetime
-from clean_panda.date_time_handler import DateTimeHandler
+from cleaner_panda.date_time_handler import DateTimeHandler
 
 
 class TestDateTimeHandler(unittest.TestCase):

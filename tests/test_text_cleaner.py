@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 
 # Assuming the functions are in a module named text_preprocessing
-from clean_panda.text_cleaner import (
+from cleaner_panda.text_cleaner import (
     remove_common_words,
     convert_to_lowercase,
     remove_punctuation,

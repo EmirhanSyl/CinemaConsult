@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from clean_panda.categorical_encoder import label_encoding, one_hot_encoding, ordinal_encoding, binary_encoding, target_encoding
+from cleaner_panda.categorical_encoder import label_encoding, one_hot_encoding, ordinal_encoding, binary_encoding, target_encoding
 
 class TestEncodingMethods(unittest.TestCase):
 

@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import numpy as np
-from clean_panda.outlier_handler import OutlierHandler, identify_outliers_zscore, handle_outliers_zscore, winsorize_data
+from cleaner_panda.outlier_handler import OutlierHandler, identify_outliers_zscore, handle_outliers_zscore, winsorize_data
 
 class TestOutlierHandler(unittest.TestCase):
 

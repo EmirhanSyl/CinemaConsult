@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Import the functions from your module
-from clean_panda.scaler import (
+from cleaner_panda.scaler import (
     log_transform_data,
     maxabs_scale_data,
     normalize_data,
