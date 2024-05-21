@@ -9,6 +9,10 @@ from contractions import contractions_dict
 nltk.download('stopwords')
 nltk.download('wordnet')
 
+class TextCleaner:
+    def __init__(self) -> None:
+        pass
+
 lemmatizer = WordNetLemmatizer()
 
 # Remove common words (stopwords)

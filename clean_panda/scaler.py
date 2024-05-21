@@ -2,6 +2,10 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler, MaxAbsScaler, PowerTransformer
 import numpy as np
 
+class Scaler:
+    def __init__(self) -> None:
+        pass
+
 # Standardize the data
 def standardize_data(dataframe):
     scaler = StandardScaler()

@@ -2,6 +2,7 @@ import pandas as pd
 import pytz
 from datetime import datetime, timedelta
 
+
 class DateTimeHandler:
     def __init__(self) -> None:
         '''Initialize DateTimeHandler with any required setup.'''

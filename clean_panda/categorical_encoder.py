@@ -2,6 +2,10 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, OrdinalEncoder
 import category_encoders as ce
 
+class CategoricalEncoder:
+    def __init__(self) -> None:
+        pass
+
 # Label encoding
 def label_encoding(dataframe, column):
     encoder = LabelEncoder()
