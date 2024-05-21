@@ -13,6 +13,10 @@ setup(
         'numpy',
         'scikit-learn',
         'nltk'
+        'category_encoders'
+        'scipy'
+        'bs4'
+        'contractions'
     ],
     classifiers=[
         'Programming Language :: Python :: 3',

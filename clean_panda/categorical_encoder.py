@@ -34,5 +34,6 @@ def binary_encoding(dataframe, column):
 # Target encoding
 def target_encoding(dataframe, column, target):
     encoder = ce.TargetEncoder(cols=[column])
-    dataframe[column] = encoder.fit_transform(dataframe[column], dataframe[target])
+    encoded_data = encoder.fit_transform(dataframe[column], dataframe[target])
+    dataframe[column] = encoded_data
     return dataframe
