@@ -1,6 +1,14 @@
 # Cleaner Panda
  Programming For Data Engineering course final project
  https://chat.openai.com/share/87c82e00-50af-446b-ac63-e82d9d35021a
+ https://pypi.org/project/cleaner-panda/
+
+ ## Installation
+ `pip install cleaner-panda`
+
+
+## Modules
+
 
 ### Missing Value Handler
 - `strategy enum {MEAN, MEDIAN, CONSTANT, REMOVE_ROW, REMOVE_COLUMN, FORWARD_BACKWARD}`
