@@ -32,31 +32,33 @@ class DateTimeHandler:
         '''Calculate the difference between consecutive datetime entries in the specified column.'''
         dataframe['time_diff'] = dataframe.iloc[:, column].diff().dt.total_seconds()
         return dataframe
-    
+
     def convert_datetime_to_different_timezones(self, dataframe: pd.DataFrame, column=0, from_tz='UTC', to_tz='America/New_York') -> pd.DataFrame:
         '''Convert datetime objects from one timezone to another.'''
         from_zone = pytz.timezone(from_tz)
         to_zone = pytz.timezone(to_tz)
-        
+
         def convert_timezone(dt):
             if pd.notnull(dt):
                 dt = from_zone.localize(dt) if dt.tzinfo is None else dt
                 return dt.astimezone(to_zone)
             return dt
-        
+
         dataframe.iloc[:, column] = dataframe.iloc[:, column].apply(convert_timezone)
         return dataframe
-    
+
     def shift_time(self, dataframe: pd.DataFrame, column=0, shift_value=1, unit='days') -> pd.DataFrame:
         '''Shift the datetime values in the specified column by a given amount.'''
         shift_kwargs = {unit: shift_value}
         dataframe.iloc[:, column] = dataframe.iloc[:, column] + pd.to_timedelta(shift_value, unit=unit)
         return dataframe
-    
+
     def handle_irregular_time_intervals(self, dataframe: pd.DataFrame, column=0) -> pd.DataFrame:
         '''Handle irregular time intervals in the datetime column, e.g., forward fill missing datetimes.'''
-        dataframe.iloc[:, column] = pd.to_datetime(dataframe.iloc[:, column])
-        dataframe = dataframe.set_index(dataframe.columns[column])
+        date_column = dataframe.columns[column]
+        dataframe = dataframe.dropna(subset=[date_column])  # Remove rows where date_column is NaT
+        dataframe = dataframe.set_index(date_column)
+        dataframe = dataframe.sort_index()  # Ensure the index is sorted
         dataframe = dataframe.asfreq('D', method='ffill')
         dataframe = dataframe.reset_index()
         return dataframe
