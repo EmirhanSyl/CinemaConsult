@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from clean_panda.data_type_converter import DataTypeConverter
+from cleaner_panda.data_type_converter import DataTypeConverter
 
 
 class TestDataTypeConverter(unittest.TestCase):
