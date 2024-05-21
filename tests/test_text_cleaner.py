@@ -43,7 +43,7 @@ class TestTextPreprocessing(unittest.TestCase):
     
     def test_expand_contractions(self):
         df = self.data.copy()
-        print("Before expanding contractions:\n")
+        print("\nBefore expanding contractions:\n")
         print(df)
         
         result = expand_contractions(df, 'text')
@@ -53,7 +53,7 @@ class TestTextPreprocessing(unittest.TestCase):
         
     def test_filter_words(self):
         df = self.data.copy()
-        print("Before filtering words:\n")
+        print("\nBefore filtering words:\n")
         print(df)
         
         result = filter_words(df, 'text')
@@ -63,7 +63,7 @@ class TestTextPreprocessing(unittest.TestCase):
     
     def test_lemmatization(self):
         df = self.data.copy()
-        print("Before lemmatization:\n")
+        print("\nBefore lemmatization:\n")
         print(df)
         
         result = lemmatization(df, 'text')
@@ -73,7 +73,7 @@ class TestTextPreprocessing(unittest.TestCase):
 
     def test_remove_common_words(self):
         df = self.data.copy()
-        print("Before removing common words:\n")
+        print("\nBefore removing common words:\n")
         print(df)
         
         result = remove_common_words(df, 'text')
@@ -83,7 +83,7 @@ class TestTextPreprocessing(unittest.TestCase):
 
     def test_remove_html_tags(self):
         df = self.data.copy()
-        print("Before removing HTML tags:\n")
+        print("\nBefore removing HTML tags:\n")
         print(df)
         
         result = remove_html_tags(df, 'text')
@@ -93,7 +93,7 @@ class TestTextPreprocessing(unittest.TestCase):
         
     def test_remove_numerical(self):
         df = self.data.copy()
-        print("Before removing numerical values:\n")
+        print("\nBefore removing numerical values:\n")
         print(df)
         
         result = remove_numerical(df, 'text')
@@ -103,7 +103,7 @@ class TestTextPreprocessing(unittest.TestCase):
 
     def test_remove_punctuation(self):
         df = self.data.copy()
-        print("Before removing punctuation:\n")
+        print("\nBefore removing punctuation:\n")
         print(df)
         
         result = remove_punctuation(df, 'text')
@@ -113,7 +113,7 @@ class TestTextPreprocessing(unittest.TestCase):
 
     def test_remove_special_characters(self):
         df = self.data.copy()
-        print("Before removing special characters:\n")
+        print("\nBefore removing special characters:\n")
         print(df)
         
         result = remove_special_characters(df, 'text')
@@ -123,7 +123,7 @@ class TestTextPreprocessing(unittest.TestCase):
 
     def test_remove_stopwords(self):
         df = self.data.copy()
-        print("Before removing stopwords:\n")
+        print("\nBefore removing stopwords:\n")
         print(df)
         
         result = remove_stopwords(df, 'text')
@@ -133,7 +133,7 @@ class TestTextPreprocessing(unittest.TestCase):
     
     def test_replace_urls(self):
         df = self.data.copy()
-        print("Before replacing URLs:\n")
+        print("\nBefore replacing URLs:\n")
         print(df)
         
         result = replace_urls(df, 'text')
@@ -143,7 +143,7 @@ class TestTextPreprocessing(unittest.TestCase):
     
     def test_stem_words(self):
         df = self.data.copy()
-        print("Before stemming words:\n")
+        print("\nBefore stemming words:\n")
         print(df)
         
         result = stem_words(df, 'text')
