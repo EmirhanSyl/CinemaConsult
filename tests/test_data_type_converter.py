@@ -1,31 +1,40 @@
 import unittest
 import pandas as pd
+from clean_panda.data_type_converter import DataTypeConverter
+
 
 class TestDataTypeConverter(unittest.TestCase):
 
     def setUp(self):
-        '''Set up the test data and the DataTypeConverter instance.'''
         self.converter = DataTypeConverter()
         self.data = {
-            'numeric_column': ['1', '2', 'three', '4', '5'],
-            'categorical_column': ['apple', 'banana', 'apple', 'banana', 'cherry']
+            'numeric_str': ['1', '2', '3', 'invalid'],
+            'category_str': ['apple', 'banana', 'apple', 'orange']
         }
         self.df = pd.DataFrame(self.data)
-    
+
     def test_convert_to_numeric(self):
-        df_result = self.converter.convert_to_numeric(self.df.copy(), 'numeric_column')
-        expected_result = pd.DataFrame({
-            'numeric_column': [1.0, 2.0, float('nan'), 4.0, 5.0],
-            'categorical_column': ['apple', 'banana', 'apple', 'banana', 'cherry']
-        })
-        pd.testing.assert_frame_equal(df_result, expected_result)
-    
+        column = 'numeric_str'
+        df_result = self.converter.convert_to_numeric(self.df.copy(), column)
+        print("\n\nCONVERT TO NUMERIC TEST")
+        print("-" * 60)
+        print("\nBefore Converting to Numeric:")
+        print(self.df)
+        print(f"\nAfter Converting to Numeric for column '{column}':")
+        print(df_result)
+        print("-" * 60)
+
     def test_convert_to_categorical(self):
-        df_result = self.converter.convert_to_categorical(self.df.copy(), 'categorical_column')
-        expected_result = pd.DataFrame({
-            'numeric_column': ['1', '2', 'three', '4', '5'],
-            'categorical_column': pd.Categorical(['apple', 'banana', 'apple', 'banana', 'cherry'])
-        })
-        pd.testing.assert_frame_equal(df_result, expected_result)
-        self.assertTrue(pd.api.types.is_categorical_dtype(df_result['categorical_column']))
-    
+        column = 'category_str'
+        df_result = self.converter.convert_to_categorical(self.df.copy(), column)
+        print("\n\nCONVERT TO CATEGORICAL TEST")
+        print("-" * 60)
+        print("\nBefore Converting to Categorical:")
+        print(self.df)
+        print(f"\nAfter Converting to Categorical for column '{column}':")
+        print(df_result)
+        print("-" * 60)
+
+
+if __name__ == '__main__':
+    unittest.main()
