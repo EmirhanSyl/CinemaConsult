@@ -41,7 +41,7 @@ class MissingValueHandler:
             mean_value = dataframe[column].mean()
             dataframe[column].fillna(mean_value, inplace=True)
         else:
-            raise ValueError(f"Column '{column}' is not numeric. Skipping mean replacement.")
+            raise ValueError(f"Column '{column}' is not numeric. Skipping mean replacement...")
         
         return dataframe
 
