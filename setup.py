@@ -4,14 +4,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='cleaner_panda',
-    version='0.1.8',
+    version='0.1.9',
     description='A package for handling various data preprocessing tasks',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author='asimtarik & emirs',
     author_email='support@cleanpanda.com',
     url='https://github.com/EmirhanSyl/cleaner-panda',
-    download_url='https://github.com/EmirhanSyl/cleaner-panda/archive/refs/tags/v0.1.8.tar.gz',
+    download_url='https://github.com/EmirhanSyl/cleaner-panda/archive/refs/tags/v0.1.9.tar.gz',
     packages=find_packages(),
     install_requires=[
         'pandas',

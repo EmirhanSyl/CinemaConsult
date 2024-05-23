@@ -38,14 +38,14 @@ class OutlierHandler:
     
 
     # Identify outliers using Z-score method
-    def identify_outliers_zscore(data, threshold=3):
+    def identify_outliers_zscore(self, data, threshold=3):
         z_scores = np.abs(stats.zscore(data))
         outliers = z_scores > threshold
         return outliers
 
     # Handle outliers using Z-score method
-    def handle_outliers_zscore(data, threshold=3, replacement=None):
-        outliers = identify_outliers_zscore(data, threshold)
+    def handle_outliers_zscore(self, data, threshold=3, replacement=None):
+        outliers = self.identify_outliers_zscore(data, threshold)
         if replacement is None:
             # Remove outliers
             data_cleaned = data[~outliers]
@@ -64,7 +64,7 @@ class OutlierHandler:
         return data_cleaned
 
     # Winsorize data
-    def winsorize_data(data, limits=(0.05, 0.05)):
+    def winsorize_data(self, data, limits=(0.05, 0.05)):
         from scipy.stats.mstats import winsorize
         winsorized_data = winsorize(data, limits=limits)
         return pd.Series(winsorized_data)
