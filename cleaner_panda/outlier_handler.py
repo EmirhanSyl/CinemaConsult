@@ -38,33 +38,33 @@ class OutlierHandler:
     
 
     # Identify outliers using Z-score method
-def identify_outliers_zscore(data, threshold=3):
-    z_scores = np.abs(stats.zscore(data))
-    outliers = z_scores > threshold
-    return outliers
+    def identify_outliers_zscore(data, threshold=3):
+        z_scores = np.abs(stats.zscore(data))
+        outliers = z_scores > threshold
+        return outliers
 
-# Handle outliers using Z-score method
-def handle_outliers_zscore(data, threshold=3, replacement=None):
-    outliers = identify_outliers_zscore(data, threshold)
-    if replacement is None:
-        # Remove outliers
-        data_cleaned = data[~outliers]
-    else:
-        if replacement == 'median':
-            replacement_value = data.median()
-        elif replacement == 'mean':
-            replacement_value = data.mean()
+    # Handle outliers using Z-score method
+    def handle_outliers_zscore(data, threshold=3, replacement=None):
+        outliers = identify_outliers_zscore(data, threshold)
+        if replacement is None:
+            # Remove outliers
+            data_cleaned = data[~outliers]
         else:
-            replacement_value = replacement
-        
-        # Replace outliers with replacement value
-        data_cleaned = data.copy()
-        data_cleaned[outliers] = replacement_value
+            if replacement == 'median':
+                replacement_value = data.median()
+            elif replacement == 'mean':
+                replacement_value = data.mean()
+            else:
+                replacement_value = replacement
 
-    return data_cleaned
+            # Replace outliers with replacement value
+            data_cleaned = data.copy()
+            data_cleaned[outliers] = replacement_value
 
-# Winsorize data
-def winsorize_data(data, limits=(0.05, 0.05)):
-    from scipy.stats.mstats import winsorize
-    winsorized_data = winsorize(data, limits=limits)
-    return pd.Series(winsorized_data)
+        return data_cleaned
+
+    # Winsorize data
+    def winsorize_data(data, limits=(0.05, 0.05)):
+        from scipy.stats.mstats import winsorize
+        winsorized_data = winsorize(data, limits=limits)
+        return pd.Series(winsorized_data)
