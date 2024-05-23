@@ -1,6 +1,8 @@
 # Cleaner Panda
  Programming For Data Engineering course final project
- https://chat.openai.com/share/87c82e00-50af-446b-ac63-e82d9d35021a
+
+![logo.jpg](logo.jpg)
+
  https://pypi.org/project/cleaner-panda/
 
  ## Installation
@@ -13,13 +15,13 @@
 ### Missing Value Handler
 - `strategy enum {MEAN, MEDIAN, CONSTANT, REMOVE_ROW, REMOVE_COLUMN, FORWARD_BACKWARD}`
 - `cont_int = 0, const_str =”none”, const_date=01.01.2024…`
-- `replace_missing_values(dataFrame, strategy=”strategy.MEAN”, column=0)` -> Replaces missing values on the “column” parameter according to the selected strategy. The “column” can be an index or column name as str.
+- `replace_missing_values(dataFrame, strategy=”strategy.MEAN”, column=0)`
 - `replace_mean(dataframe, column)`
 - `replace_median(dataframe, column)`
 - `replace_constant(dataframe, column, constant)`
 - `replace_remove_row(dataframe, column)`
 - `replace_remove_column(dataframe, column)`
-- `replace_forward_backward(dataframe, column)` // fill missing value with previous/next value
+- `replace_forward_backward(dataframe, column)`
 
 ### Outlier Handler
 - `identify_outliers_iqr(data, threshold=1.5)`

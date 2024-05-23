@@ -62,5 +62,6 @@ class TestEncodingMethods(unittest.TestCase):
         print("\nAfter target encoding:\n")
         print(result)
 
+
 if __name__ == '__main__':
     unittest.main()

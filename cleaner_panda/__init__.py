@@ -10,8 +10,7 @@ __all__ = [
     'MissingValueHandler', 
     'OutlierHandler', 
     'Scaler', 
-    'TextCleaner', 
-    'FeatureEngineer', 
+    'TextCleaner',
     'DataTypeConverter', 
     'CategoricalEncoder', 
     'DateTimeHandler'

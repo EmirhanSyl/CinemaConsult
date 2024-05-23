@@ -39,7 +39,7 @@ class MissingValueHandler:
     def replace_mean(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
         if pd.api.types.is_numeric_dtype(dataframe[column]):
             mean_value = dataframe[column].mean()
-            dataframe[column].fillna(mean_value, inplace=True)
+            dataframe[column].fillna(mean_value)
         else:
             raise ValueError(f"Column '{column}' is not numeric. Skipping mean replacement...")
         
@@ -48,7 +48,7 @@ class MissingValueHandler:
     def replace_median(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
         if pd.api.types.is_numeric_dtype(dataframe[column]):
             median_value = dataframe[column].median()
-            dataframe[column].fillna(median_value, inplace=True)
+            dataframe[column].fillna(median_value)
         else:
             raise ValueError(f"Column '{column}' is not numeric. Skipping median replacement.")
         return dataframe
@@ -63,7 +63,7 @@ class MissingValueHandler:
         else:
             raise ValueError(f"Unsupported column type for column '{column}'")
         
-        dataframe[column].fillna(const_value, inplace=True)
+        dataframe[column].fillna(const_value)
         return dataframe
 
     def replace_remove_row(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
@@ -73,6 +73,6 @@ class MissingValueHandler:
         return dataframe.drop(columns=[column])
 
     def replace_forward_backward(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        dataframe[column].fillna(method='ffill', inplace=True)
-        dataframe[column].fillna(method='bfill', inplace=True)
+        dataframe[column].fillna(method='ffill')
+        dataframe[column].fillna(method='bfill')
         return dataframe
