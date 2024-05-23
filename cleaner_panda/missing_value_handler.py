@@ -37,42 +37,47 @@ class MissingValueHandler:
             raise ValueError("Invalid strategy")
 
     def replace_mean(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        if pd.api.types.is_numeric_dtype(dataframe[column]):
-            mean_value = dataframe[column].mean()
-            dataframe[column].fillna(mean_value)
+        df_copy = dataframe.copy()
+        if pd.api.types.is_numeric_dtype(df_copy[column]):
+            mean_value = df_copy[column].mean()
+            df_copy[column].fillna(mean_value, inplace=True)
         else:
             raise ValueError(f"Column '{column}' is not numeric. Skipping mean replacement...")
-        
-        return dataframe
+        return df_copy
 
     def replace_median(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        if pd.api.types.is_numeric_dtype(dataframe[column]):
-            median_value = dataframe[column].median()
-            dataframe[column].fillna(median_value)
+        df_copy = dataframe.copy()
+        if pd.api.types.is_numeric_dtype(df_copy[column]):
+            median_value = df_copy[column].median()
+            df_copy[column].fillna(median_value, inplace=True)
         else:
             raise ValueError(f"Column '{column}' is not numeric. Skipping median replacement.")
-        return dataframe
+        return df_copy
 
     def replace_constant(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        if pd.api.types.is_numeric_dtype(dataframe[column]):
+        df_copy = dataframe.copy()
+        if pd.api.types.is_numeric_dtype(df_copy[column]):
             const_value = self.const_int
-        elif pd.api.types.is_string_dtype(dataframe[column]):
+        elif pd.api.types.is_string_dtype(df_copy[column]):
             const_value = self.const_str
-        elif pd.api.types.is_datetime64_any_dtype(dataframe[column]):
+        elif pd.api.types.is_datetime64_any_dtype(df_copy[column]):
             const_value = self.const_date
         else:
             raise ValueError(f"Unsupported column type for column '{column}'")
-        
-        dataframe[column].fillna(const_value)
-        return dataframe
+
+        df_copy[column].fillna(const_value, inplace=True)
+        return df_copy
 
     def replace_remove_row(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        return dataframe.dropna(subset=[column])
+        df_copy = dataframe.copy()
+        return df_copy.dropna(subset=[column])
 
     def replace_remove_column(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        return dataframe.drop(columns=[column])
+        df_copy = dataframe.copy()
+        return df_copy.drop(columns=[column])
 
     def replace_forward_backward(self, dataframe: pd.DataFrame, column: Union[int, str]) -> pd.DataFrame:
-        dataframe[column].fillna(method='ffill')
-        dataframe[column].fillna(method='bfill')
-        return dataframe
+        df_copy = dataframe.copy()
+        df_copy[column].fillna(method='ffill', inplace=True)
+        df_copy[column].fillna(method='bfill', inplace=True)
+        return df_copy
