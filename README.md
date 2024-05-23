@@ -1,7 +1,7 @@
 # Cleaner Panda
  Programming For Data Engineering course final project
 
-![logo.jpg](logo.jpg)
+![https://github.com/EmirhanSyl/cleaner-panda/blob/main/logo.jpg](logo.jpg)
 
  https://pypi.org/project/cleaner-panda/
 
